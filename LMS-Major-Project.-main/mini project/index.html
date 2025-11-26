@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do List - Ajendra Yadav</title>
+  <!-- style.css ko link kar rahe hain -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 
+    Main container: poora app iske andar hai.
+    Presentation tip: yahan bataiye ki HTML structure simple & semantic hai (header, section, footer).
+  -->
+  <main class="app">
+    <header>
+      <h1>To-Do List</h1>
+      <p class="meta">Simple task manager — HTML • CSS • JavaScript</p>
+    </header>
+
+    <!-- todo-card: task add karne aur list dikhane wala section -->
+    <section class="todo-card" aria-labelledby="todo-heading">
+      <h2 id="todo-heading" class="sr-only">Manage your tasks</h2>
+
+      <!-- 
+        task-form: user input ke liye form.
+        Presentation tip: form submit event JavaScript se handle hota hai (refresh avoid karne ke liye).
+      -->
+      <form id="task-form" class="task-form" autocomplete="off">
+        <!-- task-input: user yahan likhega -->
+        <input id="task-input" name="task" type="text" placeholder="Koi naya task likho aur Enter dabao..." aria-label="Add task" />
+        <!-- button bhi provide kiya hai for accessibility -->
+        <button type="submit" id="add-btn">Add</button>
+      </form>
+
+      <!-- small controls: hide completed, count, clear all -->
+      <div class="controls">
+        <div class="left">
+          <label>
+            <input type="checkbox" id="hide-completed" />
+            Hide completed
+          </label>
+        </div>
+        <div class="right">
+          <span id="count">0 tasks</span>
+          <button id="clear-all" title="Clear all tasks">Clear All</button>
+        </div>
+      </div>
+
+      <!-- task list ko yahin render karenge (JavaScript) -->
+      <ul id="task-list" class="task-list" aria-live="polite"></ul>
+
+      <!-- empty message jab koi task na ho to dikhayenge -->
+      <div id="empty" class="empty">Koi task nahi — naya task add karo!</div>
+    </section>
+
+    <footer class="footer">
+      <small>Prepared by Ajendra Yadav — To-Do List Project</small>
+    </footer>
+  </main>
+
+  <!-- script.js include kar rahe hain -->
+  <script src="script.js"></script>
+</body>
+</html>
